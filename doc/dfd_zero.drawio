@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2024-06-15T06:32:21.257Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.4 Safari/605.1.15" etag="wpRN5lmRYy-Qog3ZKRof" version="24.5.2" type="github">
+<mxfile host="app.diagrams.net" modified="2024-06-15T06:58:48.669Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.4 Safari/605.1.15" etag="52VUYEcVbE9FtIlfR9VV" version="24.5.2" type="github">
   <diagram id="f106602c-feb2-e66a-4537-3a34d633f6aa" name="Page-1">
     <mxGraphModel dx="909" dy="813" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" background="none" math="0" shadow="0">
       <root>
@@ -48,6 +48,9 @@
         </mxCell>
         <mxCell id="nZUK9K19PmZj5n1lGgpa-73" value="Glasses have?" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontFamily=Helvetica;fontSize=12;fontColor=default;labelBackgroundColor=none;" vertex="1" parent="GuzJ8BqgIlNCJu6hI-l5-1007">
           <mxGeometry x="207" y="417.55999999999995" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="nZUK9K19PmZj5n1lGgpa-90" value="Virus positions" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontFamily=Helvetica;fontSize=12;fontColor=default;labelBackgroundColor=none;" vertex="1" parent="GuzJ8BqgIlNCJu6hI-l5-1007">
+          <mxGeometry x="54" y="417.55999999999995" width="60" height="30" as="geometry" />
         </mxCell>
         <mxCell id="GuzJ8BqgIlNCJu6hI-l5-1013" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;dashed=0;labelBackgroundColor=none;startArrow=none;startFill=0;startSize=4;endArrow=blockThin;endFill=1;endSize=4;strokeColor=#4284F3;strokeWidth=2;fontSize=12;" parent="1" source="GuzJ8BqgIlNCJu6hI-l5-1014" target="GuzJ8BqgIlNCJu6hI-l5-1131" edge="1">
           <mxGeometry relative="1" as="geometry">
