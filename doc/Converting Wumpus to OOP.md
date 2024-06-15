@@ -18,3 +18,5 @@ Notes:
 	- {"1-2": "clear"} means that the connection between 1 and 2 is clear.
 	-  This is to make looking up and modifying connections super easy. Rather than having connection objects (you would have to search the list of objects and check if start_id and end_id match the ones you're looking for), instead you can just index the dict with a string you create from the two ids.
 ## Entity
+See [[Design of Characters and Environment#Parent class]]
+
