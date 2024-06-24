@@ -3,7 +3,7 @@ class_name Player extends CharacterBody3D
 
 const MAX_SPEED = 5.0 #m/s
 const ACCEL = 100 #m/s^2
-const JUMP_HEIGHT = 4.5 #m
+const JUMP_HEIGHT = 1.5 #m
 const CAMERA_SENSITIVITY = 1
 
 var jumping := false

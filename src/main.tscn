@@ -1,6 +1,6 @@
 [gd_scene load_steps=19 format=3 uid="uid://duw0jvn8k5h4a"]
 
-[ext_resource type="Script" path="res://world.gd" id="1_ebpxc"]
+[ext_resource type="Script" path="res://world_manager.gd" id="1_nvgfg"]
 [ext_resource type="ArrayMesh" uid="uid://kf15hlb4yr0b" path="res://Tuft of grass.obj" id="1_wbwj8"]
 [ext_resource type="Shader" path="res://grass.gdshader" id="2_xf1et"]
 [ext_resource type="PackedScene" uid="uid://b87p7l72jybf0" path="res://player.tscn" id="3_igqfv"]
@@ -71,7 +71,7 @@ outer_radius = 1.337
 size = Vector3(1, 2.5, 2.5)
 
 [node name="Main" type="Node3D"]
-script = ExtResource("1_ebpxc")
+script = ExtResource("1_nvgfg")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)

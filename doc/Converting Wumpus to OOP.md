@@ -7,7 +7,7 @@ class room:
 ```
 ## Room manager/world
 ```
-rooms:list[connection]
+rooms:list[room]
 connections:dict{"${start}-${end}": "blocked"}
 block_connection(start, end)
 ```
