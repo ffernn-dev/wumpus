@@ -1,4 +1,10 @@
 [gd_resource type="StandardMaterial3D" format=3 uid="uid://dkbmxgnpagbg2"]
 
 [resource]
-albedo_color = Color(0.152941, 0.317647, 0.160784, 1)
+albedo_color = Color(3.52546e-06, 0.747822, 0.201268, 1)
+metallic_specular = 1.0
+rim = 0.08
+rim_tint = 1.0
+subsurf_scatter_enabled = true
+subsurf_scatter_strength = 0.18
+subsurf_scatter_skin_mode = true

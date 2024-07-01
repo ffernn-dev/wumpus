@@ -1,4 +1,4 @@
-extends Pickup
+class_name Arrow extends Pickup
 
 func _ready():
 	item_id = "arrow"

@@ -25,8 +25,8 @@ attack()
 ```
 - **The Virus**: known as *Number Four* because of the strange arbitrary limitation programmed into it: each computer only gets erased after infecting 4 surrounding computers. This has lead to networks being rearranged to only have 3 connections per node for safety, slowing down communications and making the internet very difficult to navigate.
 	- Can make more copies of itself once its type is "infected", using the `progress()` function. This will either occur each time the player moves between rooms, or after a timer cooldown.
-	- Newly created virus will have the type "infecting", and will have to `progress` 12 times to reach a fully infected state, before it can start to infect adjacent servers.
-	- The `source_room` will be used to show a glitch effect on the relevant connection while it's infecting.
+	- Newly created virus will have the type "infecting", and will have to `progress` 6 times to reach a fully infected state, before it can start to infect adjacent servers.
+	- Rooms adjacent to the virus will have a glitch effect on the doorway to indicate that its unsafe. `source_room` will be used to mark the connection.
 ```
 type = "infected"|"infecting"
 current_room = 19

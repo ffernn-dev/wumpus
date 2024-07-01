@@ -6,6 +6,9 @@ class_name Portal extends Area3D
 	set(value):
 		destination_id = value
 		$Label3D.text = str(destination_id)
+		if destination_id == 20:
+			go_purple()
+
 
 signal portal_entered(destination)
 
@@ -18,3 +21,10 @@ func _on_body_entered(body):
 	if body is Player and creation_cooldown.is_stopped():
 		portal_entered.emit(destination_id)
 		print("to room ", destination_id)
+
+func go_purple():
+	var mat: StandardMaterial3D = $portal/Body.get_surface_override_material(0)
+	mat = mat.duplicate()
+	mat.albedo_color = Color("#7000c0")
+	$portal/DataStream.hide()
+	$portal/Body.set_surface_override_material(0, mat)

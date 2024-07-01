@@ -18,6 +18,12 @@ config/icon="res://icon.svg"
 [autoload]
 
 DodecahedronData="*res://dodecahedron_data.gd"
+GlobalData="*res://global_data.gd"
+
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
 
 [editor_plugins]
 

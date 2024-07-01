@@ -1,3 +1,4 @@
+@tool
 extends Node
 
 var phi = (1 + sqrt(5)) / 2  # The golden ratio
