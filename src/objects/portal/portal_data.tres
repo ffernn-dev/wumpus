@@ -1,0 +1,17 @@
+[gd_resource type="ShaderMaterial" load_steps=5 format=3 uid="uid://cjb5krirhsnjo"]
+
+[ext_resource type="Shader" path="res://shaders/portal_data.gdshader" id="1_2fq3g"]
+[ext_resource type="Texture2D" uid="uid://cd41asg7pceg3" path="res://objects/portal/Binary_file.png" id="2_cfep3"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_uyaln"]
+fractal_type = 0
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_jt4cq"]
+noise = SubResource("FastNoiseLite_uyaln")
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_2fq3g")
+shader_parameter/col = Color(0.882353, 0, 0.141176, 1)
+shader_parameter/image = ExtResource("2_cfep3")
+shader_parameter/wiggle_noise = SubResource("NoiseTexture2D_jt4cq")
