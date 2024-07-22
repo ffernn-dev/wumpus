@@ -1,24 +1,31 @@
 class_name Virus extends Node
 
-var spreadable_rooms
+var spreadable_rooms = {}
+var room_id: int
 var age: int = 0
 
 func _init(id: int):
+	room_id = id
 	var connected_rooms = GlobalData.connections[str(id)]
-	for i in connected_rooms.keys():
-		if _is_room_valid(int(i)):
-			spreadable_rooms[i] = connected_rooms[i]
+	spreadable_rooms = connected_rooms
 
-
-func _is_room_valid(room_id: int):
+func _is_room_valid(target_room_id: int):
 	var valid = true
+	
+	# Rooms connected by blocked connections are invalid
+	if spreadable_rooms.get(str(target_room_id)) == GlobalData.CONNECTION_BLOCKED:
+		print("virus can't spread, path blocked!")
+		valid = false
 	
 	# The room next to the datawump's room is invalid
 	if room_id == GlobalData.hidden_room_source:
+		print("tried to virus into wump room")
 		valid = false
 	
-	var room = GlobalData.rooms[room_id]
-	if room.contents.any(func(x): x is Virus):
+	# Rooms with viruses already are invalid
+	var room = GlobalData.rooms[target_room_id]
+	if room.contents.any(func(x): return x is Virus):
+		print("Already virus there!")
 		valid = false
 	
 	return valid
@@ -29,12 +36,15 @@ func tick():
 		spread_attempt()
 	
 func spread_attempt():
-	var target_room = spreadable_rooms.keys().choose_random()
-	if spreadable_rooms[target_room] == GlobalData.CONNECTION_BLOCKED:
-		spreadable_rooms.erase(target_room)
+	if spreadable_rooms == {}:
 		return
+	var target_room = spreadable_rooms.keys().pick_random()
+	
 	if not _is_room_valid(int(target_room)):
 		spreadable_rooms.erase(target_room)
 		return
 	
+	for item in GlobalData.rooms[int(target_room)].contents:
+		if item is Goggles:
+			GlobalData.goggles_destroyed = true
 	GlobalData.rooms[int(target_room)].create_virus()

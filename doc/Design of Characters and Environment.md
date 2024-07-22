@@ -51,3 +51,14 @@ class entity:
 - `gift` is able to hop between servers in virtual reality, with each one experienced as a small world where she can see and travel through network connections, and see/interact with anything that could be hiding in the corners of the machine.
 - The network she's in is set up so that each node is only connected to three others, in order to prevent the virus travelling. If `gift` ends up in a room with the virus in it, it will make its way onto her network, meaning game over. Servers next to the virus will start to show damage and glitches moving in through the connection ports. She must disconnect these ports as soon as possible
 - The Datawump's home server is invisible without wearing WumpVision glasses, hidden somewhere in the network. Once you have them, the room will reveal itself as a fourth connection from one room.
+## Success criteria
+- **Movement and Navigation**:
+    - It is immediately obvious to the player that they can move smoothly between rooms
+    - Room transitions are validated, ensuring the player only moves to adjacent, connected rooms.
+- **Virus Mechanics**:
+    - The virus, _Number Four_, progresses and infects adjacent rooms correctly using the `progress()` function.
+    - Rooms adjacent to the virus display a glitch effect on the doorway, indicating danger.
+- **Datawump Mechanics**:
+    - The Datawump can attack using predefined patterns, and the player must avoid red zones in the attack area.
+	- Player can use `shoot()` to attack the Datawump, reducing its health upon successful hits.
+- **Gameplay is fun and repeatable**

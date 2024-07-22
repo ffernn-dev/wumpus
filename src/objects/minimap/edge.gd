@@ -12,3 +12,9 @@ extends MeshInstance3D
 		self.mesh.radius = value
 	get:
 		return self.mesh.radius
+
+func set_red():
+	var mat: StandardMaterial3D = get_surface_override_material(0)
+	mat = mat.duplicate()
+	mat.albedo_color = "#f00"
+	set_surface_override_material(0, mat)

@@ -12,6 +12,16 @@ func create_virus():
 	var virus = Virus.new(id)
 	contents.append(virus)
 
+func create_arrow():
+	var arrow = Arrow.new()
+	arrow.parent_room = self
+	contents.append(arrow)
+
+func create_goggles():
+	var goggles = Goggles.new()
+	goggles.parent_room = self
+	contents.append(goggles)
+
 func tick():
 	for item in contents:
 		if item is Virus:

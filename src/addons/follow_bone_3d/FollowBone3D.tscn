@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://slrffyphy2uo"]
+
+[ext_resource type="Script" path="res://addons/follow_bone_3d/FollowBone3D.gd" id="1"]
+
+[node name="BoneFollow" type="Marker3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0222276, 2.19915, 0.266044)
+script = ExtResource("1")

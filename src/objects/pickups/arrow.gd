@@ -1,5 +1,5 @@
 class_name Arrow extends Pickup
 
-func _ready():
+func _init():
 	item_id = "arrow"
 	n = randi_range(1, 3)

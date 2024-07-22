@@ -12,6 +12,7 @@ var mouse_captured := false
 # Default project gravity to sync with physics objects
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 @onready var camera := $Neck/Eyes
+@onready var raycast := $Neck/Eyes/RayCast3D
 @onready var inventory := $Inventory
 
 var input_vec: Vector2 # Movement direction given by input keys
@@ -22,6 +23,11 @@ var gravity_vel: Vector3
 var jump_vel: Vector3
 
 var can_move := true
+var raycast_was_colliding = false
+var last_hovered_portal
+
+var active_arrows = []
+var arrow_scene := preload("res://objects/moving_arrow/moving_arrow.tscn")
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -32,9 +38,16 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
 		look_vec = event.relative * 0.001
 		_rotate_camera()
-	if Input.is_action_just_pressed("jump"): jumping = true
-	if Input.is_action_just_pressed("exit"): get_tree().quit()
-	if Input.is_action_just_pressed("toggle_mouse_capture"): toggle_mouse_capture()
+
+func fire():
+	if GlobalData.current_room != 20:
+		return
+	if inventory.has_arrow():
+		inventory.use_arrow()
+		var arrow: RigidBody3D = arrow_scene.instantiate()
+		arrow.transform = camera.global_transform
+		active_arrows.append(arrow)
+		get_parent().add_child(arrow)
 
 
 func _rotate_camera(sens_mod: float = 1.0) -> void:
@@ -65,11 +78,36 @@ func _jump(delta: float) -> Vector3:
 
 
 func _physics_process(delta: float) -> void:
+	if Input.is_action_just_pressed("jump"): jumping = true
+	if Input.is_action_just_pressed("exit"): get_tree().quit()
+	if Input.is_action_just_pressed("toggle_mouse_capture"): toggle_mouse_capture()
+	if Input.is_action_just_pressed("fire"): fire()
 	velocity = _walk(delta) + _jump(delta) + _gravity(delta)
 	velocity *= int(can_move)
 	move_and_slide()
+	if raycast.is_colliding():
+		var collider = raycast.get_collider()
+		if collider.name == "Switch":
+			# Janky :(
+			var portal = collider.get_parent().get_parent()
+			last_hovered_portal = portal
+			portal.button_hover()
+			if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
+				portal.close_door()
+			raycast_was_colliding = true
+		else:
+			if raycast_was_colliding:
+				last_hovered_portal.button_unhover()
+				raycast_was_colliding = false
+	else:
+		if raycast_was_colliding:
+			last_hovered_portal.button_unhover()
+			raycast_was_colliding = false
 
 func toggle_mouse_capture():
 	var mode = Input.MOUSE_MODE_VISIBLE if mouse_captured else Input.MOUSE_MODE_CAPTURED
 	Input.set_mouse_mode(mode)
 	mouse_captured = !mouse_captured
+
+func take_damage(n):
+	inventory.take_damage(n)

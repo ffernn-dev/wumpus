@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://4hqyrk7r75yx"]
+
+[ext_resource type="PackedScene" uid="uid://di58mgqei1o5v" path="res://objects/pickups/pickup.tscn" id="1_j2rff"]
+[ext_resource type="PackedScene" uid="uid://c2py0ntv2v1l1" path="res://models_from_blender/Glasses.glb" id="3_yoc1d"]
+
+[node name="Pickup" instance=ExtResource("1_j2rff")]
+script = null
+
+[node name="Model" parent="Main" index="0" instance=ExtResource("3_yoc1d")]
+transform = Transform3D(0.4, 0, 0, 0, 0.381506, 0.120222, 0, -0.120222, 0.381506, 0, 0, 0)
